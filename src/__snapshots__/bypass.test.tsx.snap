@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Bypass component > should not render content if next nested children is text node (can't forward through) 1`] = `<div />`;
+
+exports[`Bypass component > should render the next nested children 1`] = `
+<div>
+  foo
+</div>
+`;
