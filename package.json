@@ -27,20 +27,27 @@
             "default": "./dist/index.js"
         }
     },
-    "main": "./dist/index.js",
-    "module": "./dist/index.mjs",
-    "types": "./dist/index.d.ts",
+    "main": "./dist/cjs/index.js",
+    "module": "./dist/es/index.mjs",
+    "types": "./dist/cjs/index.d.ts",
     "files": [
-        "dist"
+        "dist",
+        "*.md"
     ],
     "scripts": {
         "build": "bunchee",
+        "clean": "find . -name node_modules -o -name .next -o -name .turbo -o -name dist -type d -prune | xargs rm -rf",
         "dev": "bunchee --watch",
         "dev:test": "turbo run dev --filter=test...",
-        "dev:website": "turbo run dev --filter=website...",
         "format": "prettier --write .",
         "test": "vitest run",
         "test:e2e": "playwright test"
+    },
+    "lint-staged": {
+        "*.{ts,tsx}": [
+            "eslint --quiet --fix --cache",
+            "prettier --write"
+        ]
     },
     "dependencies": {
         "@radix-ui/react-slot": "^1.0.2"
@@ -49,23 +56,40 @@
         "@playwright/test": "^1.40.1",
         "@testing-library/jest-dom": "^6.2.0",
         "@testing-library/react": "^14.1.2",
-        "@types/react": "^18.2.46",
-        "bunchee": "^4.2.11",
+        "@types/react": "^18.2.47",
+        "@typescript-eslint/eslint-plugin": "^6.21.0",
+        "@typescript-eslint/parser": "^6.21.0",
+        "bunchee": "^4.3.4",
         "eslint": "^7.32.0",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-jest-dom": "^5.1.0",
         "eslint-plugin-playwright": "^0.21.0",
+        "eslint-plugin-react": "^7.33.2",
+        "eslint-plugin-react-hooks": "^4.6.0",
+        "eslint-plugin-testing-library": "^6.2.0",
         "husky": "^8.0.3",
         "lint-staged": "^15.2.0",
         "prettier": "^2.8.8",
         "prettier-plugin-packagejson": "^2.4.9",
         "react": "18.2.0",
         "react-dom": "18.2.0",
-        "turbo": "1.6",
+        "turbo": "~1.6.3",
         "typescript": "5.2.2",
         "vitest": "^1.2.0"
     },
     "peerDependencies": {
+        "@types/react": "*",
+        "@types/react-dom": "*",
         "react": "^16.8 || ^17.0 || ^18.0",
         "react-dom": "^16.8 || ^17.0 || ^18.0"
+    },
+    "peerDependenciesMeta": {
+        "@types/react": {
+            "optional": true
+        },
+        "@types/react-dom": {
+            "optional": true
+        }
     },
     "packageManager": "pnpm@6.32.11",
     "engines": {

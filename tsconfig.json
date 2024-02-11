@@ -15,20 +15,25 @@
         "noUncheckedIndexedAccess": true,
         "allowSyntheticDefaultImports": true,
         "forceConsistentCasingInFileNames": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "strictBindCallApply": true,
+        "noFallthroughCasesInSwitch": true,
+        "downlevelIteration": true,
 
-        "incremental": true,
-        "noEmit": true,
         "moduleResolution": "NodeNext",
         "module": "NodeNext",
-        "outDir": "dist",
-        "sourceMap": true,
+        "outDir": "./dist",
+        "rootDir": "./",
+        "noEmitOnError": true,
+        "incremental": true,
 
         "jsx": "react",
-        "declaration": true,
         "composite": true,
-        "declarationMap": true,
+        "declaration": true,
 
-        "lib": ["es2022", "dom", "dom.iterable"],
+        "lib": ["esnext", "dom", "dom.iterable"]
     },
-    "exclude": ["node_modules"]
+    "include": ["./src/**/*", "env.d.ts", ".eslintrc.cjs"],
+    "exclude": ["./**/dist"]
 }
