@@ -40,7 +40,7 @@ const Bypass = React.forwardRef<BypassElement, BypassProps>(
                 <RenderNextNestedChildren />
             </Slot>
         );
-    }
+    },
 );
 Bypass.displayName = "Bypass";
 

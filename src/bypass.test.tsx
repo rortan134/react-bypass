@@ -13,7 +13,7 @@ describe("renders correctly", () => {
                 <div>
                     <span>foo</span>
                 </div>
-            </Bypass>
+            </Bypass>,
         );
         expect(tree.container.textContent).toBe("foo");
         expect(tree.container.firstElementChild).toMatchSnapshot();
@@ -24,7 +24,7 @@ describe("renders correctly", () => {
                 <button>
                     <button>Click me</button>
                 </button>
-            </Bypass>
+            </Bypass>,
         );
         expect(tree.container.textContent).toBe("Click me");
         expect(tree.container.firstElementChild).toMatchSnapshot();
@@ -39,7 +39,7 @@ describe("renders correctly", () => {
                         </div>
                     </section>
                 </div>
-            </Bypass>
+            </Bypass>,
         );
         expect(tree.container.textContent).toBe("bar");
         expect(tree.container.firstElementChild).toMatchSnapshot();
@@ -48,7 +48,7 @@ describe("renders correctly", () => {
         const tree = render(
             <Bypass>
                 <div>bar</div>
-            </Bypass>
+            </Bypass>,
         );
         expect(tree.container.textContent).toBe("bar");
         expect(tree.container.firstElementChild).toBeNull();
@@ -57,7 +57,7 @@ describe("renders correctly", () => {
         const tree = render(
             <Bypass>
                 <div></div>
-            </Bypass>
+            </Bypass>,
         );
         expect(tree.container.firstElementChild).toBeNull();
     });
@@ -77,7 +77,7 @@ describe("with interaction", () => {
                         <span>Click me</span>
                     </button>
                 </Bypass>
-            </button>
+            </button>,
         );
         screen.getAllByRole("button").forEach((e) => fireEvent.click(e));
     });

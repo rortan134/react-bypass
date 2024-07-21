@@ -16,11 +16,11 @@ becomes
 
 ```tsx
 // <Bypass>
-     <span>Hello world</span>
+<span>Hello world</span>
 // </Bypass>
 ```
 
-That is, `<div>` gets "*bypassed*".
+That is, `<div>` gets "_bypassed_".
 
 It is especially useful in cases where you want to conditionally change a button's behavior in a composable way.
 
@@ -48,7 +48,7 @@ const ProtectedAction = ({ children }) => {
             <DialogTrigger>
                 <Bypass>{children}</Bypass>
             </DialogTrigger>
-            <DialogContent >
+            <DialogContent>
                 <SignUp />
             </DialogContent>
         </Dialog>
@@ -92,10 +92,10 @@ function Title() {
 }
 
 /**
-* Output:
-*
-* <h1>My Awesome Title</h1>
-**/
+ * Output:
+ *
+ * <h1>My Awesome Title</h1>
+ **/
 ```
 
 The `<Bypass>` component itself doesn't render anything. Any prop passed onto it will be forwarded down to its children.
@@ -103,4 +103,4 @@ Set `disabled={true}` to disable its component's default behavior.
 
 # About
 
-Created in 2024, released under the MIT license.  
+Created in 2024, released under the MIT license.
