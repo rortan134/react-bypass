@@ -7,3 +7,13 @@ exports[`Bypass component > should render the next nested children 1`] = `
   foo
 </div>
 `;
+
+exports[`Bypass component > should render the next nested children with multiple elements 1`] = `
+<div>
+  <div>
+    <span>
+      bar
+    </span>
+  </div>
+</div>
+`;

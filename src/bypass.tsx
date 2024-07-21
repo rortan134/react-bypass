@@ -1,19 +1,24 @@
 import { Slot, Slottable } from "@radix-ui/react-slot";
 import * as React from "react";
 
-/**
- * Skip one component node in the tree.
- * E.g. <Bypass><div><span>foo</span></div></Bypass> will render <span>foo</span>
- */
 type BypassElement = React.ElementRef<typeof Slot>;
 interface BypassProps extends React.ComponentPropsWithoutRef<typeof Slot> {
     disabled?: boolean;
 }
 
+/**
+ * Skip one component node in the tree.
+ *
+ * e.g. `<Bypass><div><span>foo</span></div></Bypass>`
+ *
+ * renders `<span>foo</span>`
+ *
+ * `<div>` gets "bypassed"
+ */
 const Bypass = React.forwardRef<BypassElement, BypassProps>(
     ({ disabled = false, children, ...props }, forwardedRef) => {
         if (disabled) {
-            return <React.Fragment {...props}>{children}</React.Fragment>;
+            return children;
         }
 
         const nextNestedChildren = React.isValidElement(children)
