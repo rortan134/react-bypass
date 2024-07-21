@@ -24,10 +24,7 @@ That is, `<div>` gets "_bypassed_".
 
 It is especially useful in cases where you want to conditionally change a button's behavior in a composable way.
 
-<details>
-<summary>See an example</summary>
-
-### Display a "Log in" dialog when an user is not authorized
+### Example: Display a "Log in" dialog on click when an user is not authorized
 
 ```tsx
 import * as React from "react";
@@ -39,7 +36,7 @@ const ProtectedAction = ({ children }) => {
 
     // Allow regular action when user is logged in
     if (isLoggedIn) {
-        return <Slot onClick={onClick}>{children}</Slot>;
+        return children;
     }
 
     // Bypass the button and replace it with a dialog trigger instead
@@ -58,15 +55,13 @@ const ProtectedAction = ({ children }) => {
 
 ```tsx
 // Only allows uploads to start when user is logged in
-// If he's not logged in the dialog will appear instead
+// When not logged in, the dialog will appear instead and `startUpload` won't be called
 <ProtectedAction>
     <button onClick={startUpload}>
         <span>Click to upload files</span>
     </button>
 </ProtectedAction>
 ```
-
-</details>
 
 ## Usage
 
