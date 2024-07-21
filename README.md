@@ -12,12 +12,10 @@ Built on top of the [@radix-ui/react-slot](https://www.radix-ui.com/primitives/d
 </Bypass>
 ```
 
-becomes
+renders
 
 ```tsx
-// <Bypass>
 <span>Hello world</span>
-// </Bypass>
 ```
 
 That is, `<div>` gets "_bypassed_".
