@@ -1,12 +1,13 @@
 {
     "name": "react-bypass",
     "version": "0.1.0",
-    "description": "Element bypass/skip for React.",
+    "description": "Element bypass for React.",
     "keywords": [
         "react",
         "slot",
         "bypass"
     ],
+    "type": "module",
     "homepage": "https://github.com/rortan134/react-bypass/",
     "bugs": {
         "url": "https://github.com/rortan134/react-bypass/issues"
@@ -38,9 +39,9 @@
         "build": "bunchee",
         "clean": "find . -name node_modules -o -name .next -o -name .turbo -o -name dist -type d -prune | xargs rm -rf",
         "dev": "bunchee --watch",
-        "dev:test": "turbo run dev --filter=test...",
         "format": "prettier --write .",
         "test": "vitest run",
+        "watch": "vitest watch",
         "test:e2e": "playwright test"
     },
     "lint-staged": {
@@ -50,32 +51,34 @@
         ]
     },
     "dependencies": {
-        "@radix-ui/react-slot": "^1.0.2"
+        "@radix-ui/react-slot": "^1.1.0"
     },
     "devDependencies": {
-        "@playwright/test": "^1.41.2",
-        "@testing-library/jest-dom": "^6.4.2",
-        "@testing-library/react": "^14.2.1",
-        "@types/react": "^18.2.55",
-        "@typescript-eslint/eslint-plugin": "^6.21.0",
-        "@typescript-eslint/parser": "^6.21.0",
-        "bunchee": "^4.4.6",
-        "eslint": "^8.56.0",
+        "@playwright/test": "^1.45.2",
+        "@testing-library/dom": "^10.3.2",
+        "@testing-library/jest-dom": "^6.4.6",
+        "@testing-library/react": "^16.0.0",
+        "@types/react": "^18.3.3",
+        "@typescript-eslint/eslint-plugin": "^7.16.1",
+        "@typescript-eslint/parser": "^7.16.1",
+        "bunchee": "^5.2.2",
+        "eslint": "^9.7.0",
         "eslint-config-prettier": "^9.1.0",
-        "eslint-plugin-jest-dom": "^5.1.0",
-        "eslint-plugin-playwright": "^1.0.1",
-        "eslint-plugin-react": "^7.33.2",
-        "eslint-plugin-react-hooks": "^4.6.0",
-        "eslint-plugin-testing-library": "^6.2.0",
-        "husky": "^9.0.10",
-        "lint-staged": "^15.2.2",
-        "prettier": "^3.2.5",
-        "prettier-plugin-packagejson": "^2.4.10",
-        "react": "18.2.0",
-        "react-dom": "18.2.0",
-        "turbo": "~1.12.3",
-        "typescript": "5.3.3",
-        "vitest": "^1.2.2"
+        "eslint-plugin-jest-dom": "^5.4.0",
+        "eslint-plugin-playwright": "^1.6.2",
+        "eslint-plugin-react": "^7.35.0",
+        "eslint-plugin-react-hooks": "^4.6.2",
+        "eslint-plugin-testing-library": "^6.2.2",
+        "husky": "^9.1.1",
+        "jest-environment-jsdom": "^29.7.0",
+        "lint-staged": "^15.2.7",
+        "prettier": "^3.3.3",
+        "prettier-plugin-packagejson": "^2.5.1",
+        "react": "18.3.1",
+        "react-dom": "18.3.1",
+        "turbo": "~2.0.9",
+        "typescript": "5.5.3",
+        "vitest": "^2.0.3"
     },
     "peerDependencies": {
         "@types/react": "*",

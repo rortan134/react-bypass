@@ -1,22 +1,14 @@
 // @ts-check
-module.exports = {
-    plugins: ["prettier-plugin-packagejson"],
+
+const config = {
     arrowParens: "always",
-    bracketSpacing: true,
     bracketSameLine: true,
-    embeddedLanguageFormatting: "auto",
-    htmlWhitespaceSensitivity: "css",
-    insertPragma: false,
-    proseWrap: "preserve",
-    quoteProps: "as-needed",
-    requirePragma: false,
+    plugins: ["prettier-plugin-packagejson"],
+    printWidth: 100,
     semi: true,
     singleQuote: false,
-    jsxSingleQuote: false,
-    trailingComma: "es5",
-    useTabs: false,
-    printWidth: 100,
     tabWidth: 4,
-    rangeStart: 0,
-    endOfLine: "auto",
+    trailingComma: "all",
 };
+
+module.exports = config;
