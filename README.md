@@ -68,12 +68,16 @@ const ProtectedAction = ({ children }) => {
 
 </details>
 
-# Usage
+## Usage
 
 To start using the library, install it to your project:
 
 ```bash
 npm i react-bypass
+```
+
+```bash
+pnpm add react-bypass
 ```
 
 ```tsx
@@ -99,8 +103,8 @@ function Title() {
 ```
 
 The `<Bypass>` component itself doesn't render anything. Any prop passed onto it will be forwarded down to its children.
-Set `disabled={true}` to disable its component's default behavior.
+Set `disabled={true}` to disable its default behavior.
 
-# About
+## About
 
 Created in 2024, released under the MIT license.
