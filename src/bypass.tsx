@@ -7,13 +7,36 @@ interface BypassProps extends React.ComponentPropsWithoutRef<typeof Slot> {
 }
 
 /**
- * Skip one component node in the tree.
- *
- * e.g. `<Bypass><div><span>foo</span></div></Bypass>`
- *
- * renders `<span>foo</span>`
- *
- * `<div>` gets "bypassed"
+ * Bypass component that skips one level of nesting in the component tree.
+ * 
+ * @component
+ * @example
+ * // Basic usage
+ * <Bypass>
+ *   <div>
+ *     <span>Content</span>
+ *   </div>
+ * </Bypass>
+ * // Renders: <span>Content</span>
+ * 
+ * @example
+ * // With disabled prop
+ * <Bypass disabled>
+ *   <div>
+ *     <span>Content</span>
+ *   </div>
+ * </Bypass>
+ * // Renders: <div><span>Content</span></div>
+ * 
+ * @param {Object} props - The component props
+ * @param {boolean} [props.disabled=false] - When true, the component renders its children without bypassing
+ * @param {React.ReactNode} props.children - The child elements to render
+ * 
+ * @returns {React.ReactElement} The rendered component
+ * 
+ * @throws {Error} Throws an error if multiple children are provided
+ * 
+ * @see {@link https://www.radix-ui.com/primitives/docs/utilities/slot Radix UI Slot}
  */
 const Bypass = React.forwardRef<BypassElement, BypassProps>(
     ({ disabled = false, children, ...props }, forwardedRef) => {
