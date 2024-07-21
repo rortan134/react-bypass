@@ -1,19 +1,23 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Bypass component > should not render content if next nested children is text node (can't forward through) 1`] = `<div />`;
-
-exports[`Bypass component > should render the next nested children 1`] = `
-<div>
-  foo
-</div>
+exports[`renders correctly > should render a single button 1`] = `
+<button>
+  Click me
+</button>
 `;
 
-exports[`Bypass component > should render the next nested children with multiple elements 1`] = `
-<div>
+exports[`renders correctly > should render the next nested children 1`] = `
+<span>
+  foo
+</span>
+`;
+
+exports[`renders correctly > should render the next nested children with multiple elements 1`] = `
+<section>
   <div>
     <span>
       bar
     </span>
   </div>
-</div>
+</section>
 `;

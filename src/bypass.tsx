@@ -29,7 +29,9 @@ const Bypass = React.forwardRef<BypassElement, BypassProps>(
         const RenderNextNestedChildren = () => {
             return React.isValidElement(nextNestedChildren) ? (
                 // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-                <Slottable>{nextNestedChildren.props.children}</Slottable>
+                <Slottable>{nextNestedChildren}</Slottable>
+            ) : typeof nextNestedChildren === "string" ? (
+                nextNestedChildren
             ) : null;
         };
 
