@@ -1,13 +1,12 @@
 {
     "name": "react-bypass",
-    "version": "0.1.0",
+    "version": "1.0.0",
     "description": "Element bypass for React.",
     "keywords": [
         "react",
         "slot",
         "bypass"
     ],
-    "type": "module",
     "homepage": "https://github.com/rortan134/react-bypass/",
     "bugs": {
         "url": "https://github.com/rortan134/react-bypass/issues"
@@ -18,14 +17,17 @@
     },
     "license": "MIT",
     "author": "GSMT <gsmt.dev@gmail.com>",
+    "sideEffects": "false",
     "exports": {
-        "import": {
-            "types": "./dist/index.d.mts",
-            "default": "./dist/index.mjs"
-        },
-        "require": {
-            "types": "./dist/index.d.ts",
-            "default": "./dist/index.js"
+        ".": {
+            "import": {
+                "types": "./dist/index.d.mts",
+                "default": "./dist/index.mjs"
+            },
+            "require": {
+                "types": "./dist/index.d.ts",
+                "default": "./dist/index.js"
+            }
         }
     },
     "main": "./dist/cjs/index.js",
@@ -41,8 +43,8 @@
         "dev": "bunchee --watch",
         "format": "prettier --write .",
         "test": "vitest run",
-        "watch": "vitest watch",
-        "test:e2e": "playwright test"
+        "test:e2e": "playwright test",
+        "watch": "vitest watch"
     },
     "lint-staged": {
         "*.{ts,tsx}": [
@@ -51,7 +53,9 @@
         ]
     },
     "dependencies": {
-        "@radix-ui/react-slot": "^1.1.0"
+        "@radix-ui/react-slot": "^1.1.0",
+        "react": "18.3.1",
+        "react-dom": "18.3.1"
     },
     "devDependencies": {
         "@playwright/test": "^1.45.2",
@@ -62,7 +66,7 @@
         "@typescript-eslint/eslint-plugin": "^7.16.1",
         "@typescript-eslint/parser": "^7.16.1",
         "bunchee": "^5.2.2",
-        "eslint": "^9.7.0",
+        "eslint": "^8.57.0",
         "eslint-config-prettier": "^9.1.0",
         "eslint-plugin-jest-dom": "^5.4.0",
         "eslint-plugin-playwright": "^1.6.2",
@@ -74,23 +78,16 @@
         "lint-staged": "^15.2.7",
         "prettier": "^3.3.3",
         "prettier-plugin-packagejson": "^2.5.1",
-        "react": "18.3.1",
-        "react-dom": "18.3.1",
         "turbo": "~2.0.9",
         "typescript": "5.5.3",
         "vitest": "^2.0.3"
     },
     "peerDependencies": {
         "@types/react": "*",
-        "@types/react-dom": "*",
-        "react": "^16.8 || ^17.0 || ^18.0",
-        "react-dom": "^16.8 || ^17.0 || ^18.0"
+        "react": "^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc"
     },
     "peerDependenciesMeta": {
         "@types/react": {
-            "optional": true
-        },
-        "@types/react-dom": {
             "optional": true
         }
     },
