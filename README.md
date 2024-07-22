@@ -29,7 +29,7 @@ import * as React from "react";
 import { Dialog, DialogTrigger, DialogContent } from "@radix-ui/react-dialog";
 import { Bypass } from "react-bypass";
 
-const ProtectedAction = ({ children }) => {
+const ProtectedAction = ({ children }: React.PropsWithChildren) => {
     const { isLoggedIn } = useSession();
 
     // Allow regular action when user is logged in
