@@ -53,12 +53,13 @@ const ProtectedAction = ({ children }) => {
 
 ```tsx
 // Only allows uploads to start when user is logged in
-// When not logged in, the dialog will appear instead and `startUpload` won't be called
+// When not logged in, the dialog will replace it instead and `startUpload` won't be called
 <ProtectedAction>
     <button onClick={startUpload}>
         <span>Click to upload files</span>
     </button>
 </ProtectedAction>
+// ^ Renders <DialogTrigger><span>...</span></DialogTrigger> if `isLoggedIn = false`
 ```
 
 ## Usage
