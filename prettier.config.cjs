@@ -1,5 +1,4 @@
-// @ts-check
-
+/** @type {import("prettier").Config} */
 const config = {
     arrowParens: "always",
     bracketSameLine: true,

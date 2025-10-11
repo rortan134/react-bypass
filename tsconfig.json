@@ -36,6 +36,6 @@
 
         "lib": ["esnext", "dom", "dom.iterable"]
     },
-    "include": ["./src/**/*", "env.d.ts", ".eslintrc.cjs"],
-    "exclude": ["./**/dist"]
+    "include": ["**/*"],
+    "exclude": ["node_modules", "dist"]
 }
