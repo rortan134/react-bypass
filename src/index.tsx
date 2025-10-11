@@ -1,2 +1,2 @@
-export { Bypass } from "./bypass";
-export type { BypassElement, BypassProps } from "./bypass";
+export { Bypass } from "./bypass.js";
+export type { BypassElement, BypassProps } from "./bypass.js";
