@@ -2,7 +2,7 @@
 
 Built on top of the [@radix-ui/react-slot](https://www.radix-ui.com/primitives/docs/utilities/slot) library.
 
-`react-bypass` is a simple utility React component that can be used as a composable approach to skip its first children and prevent it from rendering. Please note that `react-bypass` is meant to be an escape hatch and other approaches may be considered first. Its main use case is to be able to transform external JSX you may not have control of, received as children.
+`react-bypass` is a simple utility React component that can be used as a composable approach to skip its first children and prevent it from rendering. Note that `react-bypass` is meant to be an escape hatch and other approaches may be considered first. Its main use case is to be able to transform external JSX you may not have control of, received as children.
 
 ```tsx
 <Bypass>
@@ -22,7 +22,7 @@ That is, `<div>` gets "_bypassed_".
 
 It is especially useful in cases where you want to conditionally change a button's behavior in a composable way.
 
-### Example: Display a "Log in" dialog on click when an user is not authorized
+## Example: Display a "Log in" dialog on click when an user is not authorized
 
 ```tsx
 import * as React from "react";
@@ -99,6 +99,22 @@ function Title() {
 The `<Bypass>` component itself doesn't render anything. Any prop passed onto it will be forwarded down to its children.
 Set `disabled={true}` to disable its default behavior.
 
+## Additional use cases
+
+`react-bypass` can be handy in several compositional scenarios:
+
+- **Unwrapping third‑party JSX**: Drop an outer wrapper from content you do not control (e.g., CMS/MDX-rendered blocks) while preserving the inner structure.
+- **Integrating with headless/primitive libraries**: Replace an outer element to turn a child into a trigger/label without changing the child's code.
+- **Improving semantics/accessibility**: Remove layout-only wrappers to promote the semantically meaningful child to be the rendered element.
+- **Polymorphic composition**: Collapse extra wrappers when composing polymorphic components so the visual/DOM tree stays lean.
+- **Routing/analytics bridges**: Swap an outer button/link wrapper to integrate with a router or analytics collector, keeping the original child intact.
+
 ## About
 
 Created in 2024, released under the MIT license.
+
+## Notes
+
+- Do not rely on `react-bypass` (or any UI-only mechanism) as the sole means of protecting actions. Authorization must be enforced at the server and data-access layers.
+- In Next.js, components that cross the server–client boundary are often wrapped by a `Suspense` boundary implicitly. Using `react-bypass` on such components may end up bypassing the `Suspense` wrapper rather than the intended child.
+- If you must operate near a boundary, target a stable, known child element rather than a top-level node that Next.js might wrap.
