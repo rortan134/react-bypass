@@ -193,9 +193,8 @@ describe("edge cases", () => {
         expect(view.container.firstElementChild).toBeNull();
     });
 
-    it("renders nothing when top-level child is a string", () => {
-        const view = render(<Bypass>{"top" as unknown as React.ReactElement}</Bypass>);
-        expect(view.container.firstElementChild).toBeNull();
+    it("throws when top-level child is a string (not a React element)", () => {
+        expect(() => render(<Bypass>{"top"}</Bypass>)).toThrow();
     });
 
     it("throws with multiple top-level children", () => {

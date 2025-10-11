@@ -44,23 +44,22 @@ const Bypass = React.forwardRef<BypassElement, BypassProps>((props, forwardedRef
         return children;
     }
 
-    const nextNestedChildren = React.isValidElement(children)
-        ? // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-          (React.Children.only(children).props.children as React.ReactNode)
-        : null;
+    // Rely on React.Children.only to enforce exactly one top-level child and throw otherwise
+    // See: https://react.dev/reference/react/Children#children-only
+    const onlyChild = React.Children.only(children as React.ReactElement);
+    const nextNestedChildren = (onlyChild as React.ReactElement<{ children?: React.ReactNode }>)
+        .props.children;
 
-    const RenderNextNestedChildren = () => {
-        return React.isValidElement(nextNestedChildren) ? (
-            // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-            <Slottable>{nextNestedChildren}</Slottable>
-        ) : typeof nextNestedChildren === "string" ? (
-            nextNestedChildren
-        ) : null;
-    };
+    const RenderText = ({ value }: { readonly value: string }) =>
+        value as unknown as React.ReactElement;
 
     return (
         <Slot {...rest} ref={forwardedRef}>
-            <RenderNextNestedChildren />
+            {React.isValidElement(nextNestedChildren) ? (
+                <Slottable>{nextNestedChildren}</Slottable>
+            ) : typeof nextNestedChildren === "string" ? (
+                <RenderText value={nextNestedChildren} />
+            ) : null}
         </Slot>
     );
 });
